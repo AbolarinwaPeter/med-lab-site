@@ -1,0 +1,292 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0px;
+    background-color: lightblue;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+nav {
+    position: sticky;
+    top: 0px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #01264D;
+    backdrop-filter: blur(8px);
+    align-items: center;
+
+}
+
+#links ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+#links ul * {
+    color: white;
+    padding: 15px;
+    background-color: #01264D;
+}
+
+#links a {
+    text-decoration: none;
+
+}
+
+#logo {
+    font-size: 3em;
+    text-align: center;
+    align-content: center;
+    height: 10vh;
+    width: 10vh;
+    background-color: aliceblue;
+    border-radius: 50%;
+    color: #01264D;
+
+}
+
+.to-indent {
+    margin: 0px 5%;
+}
+
+#block-1 {
+    width: 50%;
+    text-align: center;
+    /* margin-left: 5%; */
+}
+
+#block-1 h1 {
+    font-size: 3.5em;
+}
+
+#hero_section {
+    background-image: url("graphics/wp10488394-medical-lab-wallpapers.jpg");
+    background-size: cover;
+    height: 100vh;
+    align-content: center;
+    color: rgb(20, 11, 121);
+
+}
+
+#credentials {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    text-align: center;
+    /* color: rgb(20, 11, 121); */
+    color: white;
+    background-color: #469AB2;
+    margin: 0px;
+}
+
+.creds:not(#cred-iv) {
+    border-right: 1px solid #01264D;
+}
+
+.creds {
+    width: 25vw;
+}
+
+#tc-sec-i p:not(#tc-sub-txt) {
+    font-size: 12px;
+    font-family: "DM Sans" sans-serif;
+}
+
+#tc-sec-i {
+    color: rgb(20, 11, 121);
+    /* margin: 5%; */
+}
+
+#tc-sub-txt {
+    color: #989D95;
+}
+
+/* #tc-sec-ii{
+    display: flex;
+    justify-content: space-between;
+} */
+.tests {
+    padding: 1.5em 4em;
+    min-width: 150px;
+    margin: 10px;
+    text-align: center;
+    align-content: center;
+    background-color: #F4F9FC;
+    font-weight: bold;
+    font-size: 18px;
+    color: #01264D;
+    border: 2px solid rgb(152, 191, 204);
+    border-radius: 50px;
+
+}
+
+#tc-sec-ii {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.tests:hover {
+    background-color: #ffffff;
+    border: 2px solid rgb(182, 215, 227);
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+#how-it-works {
+    margin: 5%;
+    color: #01264D;
+    text-align: center;
+}
+#how-it-works h1 {
+    margin-bottom: 40px;
+}
+#process {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+
+.procedure {
+    min-height: 250px;
+    background-color: white;
+    align-content: center;
+    border-radius: 15px;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    border: 2px solid rgb(209, 201, 201);
+}
+.upper-cedure{
+    background-color: #01264D;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-content: center;
+}
+.upper-cedure span {
+    text-align: center;
+    margin-left: 15PX;
+    display: inline-block;
+    font-size: 3.5em;
+    color: white;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    align-content: center;
+    background-color: rgba(146, 146, 157, 0.281);
+}
+.lower-cedure{
+    text-align: left;
+    color: #01264D;
+    align-items: center;
+    padding: 0px 10px;
+}
+#patient-portal {
+    background-color: #294669;
+    color: white;
+    margin: 0px;
+    padding: 50px 0px;
+}
+#patient-portal *{
+    margin: auto 5%;
+}
+#retrieve-results{
+    display: flex;
+}
+#result-access-form {
+    
+    border-radius: 15px;
+    border: 1.5px solid white;
+    width: 30vw;
+    padding: 30px 10px;
+    display: grid;
+    margin: 50px 0px;
+    background-color: rgba(255, 255, 255, 0.508);
+}
+#result-access-form *{
+    margin: 5px auto;
+    width: 80%;
+}
+#result-access-form input{
+    height: 45px;
+    border-radius: 5px;
+    border: 1.4px solid white;
+    background-color: rgba(255, 255, 255, 0.508);
+}
+#result-access-form #submit-btn{
+    background-color: rgb(11, 135, 60);
+}
+#patient-tips p{
+    margin-bottom: 10px;
+    font-size: smaller;
+    white-space: nowrap;
+}
+
+#patient-tips{
+    margin-left: 8vw;
+    flex-grow: 1;
+    /* max-width: 50vw; */
+}
+#footer-bx-i {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    color: white;
+}
+
+#footer-top {
+    margin: 0px 5%;
+}
+
+#footer-mid {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 5%;
+}
+
+.footer-col a {
+    text-decoration: none;
+    color: #989D95;
+    margin-top: 5px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.footer-col p {
+    font-weight: bold;
+}
+
+#footer-bottom {
+    margin: 0px 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer {
+    background-color: #01264D;
+    color: #989D95;
+    padding-left: 10px;
+    padding-top: 20px;
+    margin-bottom: 0px;
+    padding-bottom: 20px;
+}

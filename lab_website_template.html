@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedLab Diagnostic Centre — Hospital Laboratory</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --deep-teal: #0a3d3a;
+      --teal: #127369;
+      --soft-teal: #1a9e93;
+      --gold: #c8973a;
+      --gold-light: #e8b96a;
+      --cream: #f9f5ef;
+      --white: #ffffff;
+      --grey-light: #eef2f0;
+      --grey-mid: #7a8f8c;
+      --text-dark: #1a2625;
+      --text-body: #3d4e4c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-body);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 61, 58, 0.97);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      height: 68px;
+      border-bottom: 1px solid rgba(200, 151, 58, 0.3);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--deep-teal);
+      flex-shrink: 0;
+    }
+
+    .nav-logo span {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--deep-teal) !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-light);
+      color: var(--deep-teal) !important;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--deep-teal);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 100px 5vw 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before{
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(18, 115, 105, 0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 90%, rgba(200, 151, 58, 0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-text {
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(200, 151, 58, 0.2);
+      border: 1px solid rgba(200, 151, 58, 0.5);
+      color: var(--gold-light);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 1.05rem;
+      max-width: 440px;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--deep-teal);
+      padding: 14px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      color: var(--white);
+      padding: 14px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--white);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      max-width: 380px;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 20px 18px;
+      text-align: center;
+      backdrop-filter: blur(6px);
+      transition: border-color 0.25s, background 0.25s;
+      cursor: default;
+    }
+
+    .hero-card:hover {
+      background: rgba(255, 255, 255, 0.11);
+      border-color: rgba(200, 151, 58, 0.4);
+    }
+
+    .hero-card .icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .hero-card .label {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 500;
+    }
+
+    .hero-card.featured {
+      grid-column: span 2;
+      background: rgba(200, 151, 58, 0.15);
+      border-color: rgba(200, 151, 58, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-align: left;
+    }
+
+    .hero-card.featured .icon {
+      font-size: 2.4rem;
+    }
+
+    .hero-card.featured .info .title {
+      color: var(--gold-light);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .hero-card.featured .info .sub {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.78rem;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--teal);
+      display: flex;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .stat-item {
+      flex: 1;
+      max-width: 220px;
+      text-align: center;
+      padding: 28px 20px;
+      border-right: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--gold-light);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 80px 5vw;
+    }
+
+    .section-tag {
+      display: inline-block;
+      color: var(--teal);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--deep-teal);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .lead-text {
+      color: var(--grey-mid);
+      max-width: 520px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── TESTS CATALOG ── */
+    .catalog {
+      background: var(--white);
+    }
+
+    .catalog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      padding: 7px 18px;
+      border-radius: 100px;
+      border: 1.5px solid var(--grey-light);
+      background: transparent;
+      color: var(--grey-mid);
+      font-size: 0.83rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .tab.active,
+    .tab:hover {
+      background: var(--deep-teal);
+      border-color: var(--deep-teal);
+      color: var(--white);
+    }
+
+    .tests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .test-card {
+      background: var(--cream);
+      border: 1.5px solid var(--grey-light);
+      border-radius: 10px;
+      padding: 22px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+
+    .test-card:hover {
+      border-color: var(--soft-teal);
+      box-shadow: 0 4px 20px rgba(10, 61, 58, 0.08);
+    }
+
+    .test-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .test-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--deep-teal);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .test-badge {
+      font-size: 0.72rem;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .badge-urgent {
+      background: #fff0f0;
+      color: #cc3333;
+    }
+
+    .badge-routine {
+      background: #f0f8f4;
+      color: var(--teal);
+    }
+
+    .badge-special {
+      background: #fffbf0;
+      color: #a07020;
+    }
+
+    .test-name {
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .test-desc {
+      font-size: 0.85rem;
+      color: var(--grey-mid);
+      margin-bottom: 12px;
+    }
+
+    .test-meta {
+      display: flex;
+      gap: 12px;
+      font-size: 0.78rem;
+      color: var(--grey-mid);
+    }
+
+    .test-meta span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .process {
+      background: var(--cream);
+    }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+      position: relative;
+    }
+
+    .steps-row::before {
+      content: '';
+      position: absolute;
+      top: 38px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(to right, var(--teal), var(--gold));
+      z-index: 0;
+    }
+
+    .step {
+      text-align: center;
+      padding: 20px 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-num {
+      width: 54px;
+      height: 54px;
+      background: var(--deep-teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: var(--gold-light);
+      margin: 0 auto 16px;
+      border: 3px solid var(--cream);
+      box-shadow: 0 0 0 3px var(--deep-teal);
+    }
+
+    .step-title {
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .step-desc {
+      font-size: 0.84rem;
+      color: var(--grey-mid);
+    }
+
+    /* ── RESULTS PORTAL ── */
+    .portal-section {
+      background: var(--deep-teal);
+    }
+
+    .portal-section h2 {
+      color: var(--white);
+    }
+
+    .portal-section .section-tag {
+      color: var(--gold-light);
+    }
+
+    .portal-section .lead-text {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .portal-box {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 480px;
+    }
+
+    .portal-box h3 {
+      font-family: 'DM Serif Display', serif;
+      color: var(--white);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .portal-box p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .input-group input {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      padding: 13px 16px;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-group input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .input-group input:focus {
+      border-color: var(--gold);
+    }
+
+    .input-group button {
+      background: var(--gold);
+      color: var(--deep-teal);
+      border: none;
+      padding: 13px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .input-group button:hover {
+      background: var(--gold-light);
+    }
+
+    .portal-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .portal-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .portal-features li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.9rem;
+    }
+
+    .portal-features li .check {
+      width: 22px;
+      height: 22px;
+      background: rgba(200, 151, 58, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--gold-light);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── EMERGENCY ── */
+    .emergency {
+      background: #cc2222;
+      text-align: center;
+      padding: 22px 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .emergency p {
+      color: var(--white);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .emergency strong {
+      font-size: 1.2rem;
+    }
+
+    .emergency a {
+      background: var(--white);
+      color: #cc2222;
+      padding: 9px 22px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+
+    .emergency a:hover {
+      opacity: 0.88;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text-dark);
+      color: rgba(255, 255, 255, 0.55);
+      padding: 50px 5vw 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand .logo-icon {
+      background: var(--gold);
+    }
+
+    .footer-brand .nav-logo {
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    .footer-col h4 {
+      color: var(--white);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-col a {
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      font-size: 0.84rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.8rem;
+    }
+
+    /* ── NOTICE BAR ── */
+    .notice-bar {
+      background: rgba(200, 151, 58, 0.15);
+      border-left: 4px solid var(--gold);
+      padding: 14px 24px;
+      border-radius: 0 8px 8px 0;
+      margin: 2rem 0;
+      font-size: 0.87rem;
+      color: var(--text-body);
+    }
+
+    .notice-bar strong {
+      color: var(--deep-teal);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        max-width: 100%;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .portal-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .steps-row::before {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-logo">
+      <div class="logo-icon">M</div>
+      <span>MedLab Diagnostic Centre</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#tests">Tests</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#results" class="nav-cta">Get Results</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <span class="hero-badge">Serving [Town Name] & Surrounding Communities</span>
+      <h1>Diagnostic Care <em>You Can Trust,</em> Close to Home</h1>
+      <p>Accredited laboratory services supporting [Hospital Name] — delivering accurate, timely results for the
+        healthcare decisions that matter most.</p>
+      <div class="hero-actions">
+        <a href="#tests" class="btn-primary">View All Tests</a>
+        <a href="#results" class="btn-outline">Retrieve Results</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card-grid">
+        <div class="hero-card">
+          <div class="icon">🩸</div>
+          <div class="label">Haematology</div>
+        </div>
+        <div class="hero-card">
+          <div class="icon">🧪</div>
+          <div class="label">Biochemistry</div>
+        </div>
+        <div class="hero-card">
+          <div class="icon">🦠</div>
+          <div class="label">Microbiology</div>
+        </div>
+        <div class="hero-card">
+          <div class="icon">🔬</div>
+          <div class="label">Histopathology</div>
+        </div>
+        <div class="hero-card featured">
+          <div class="icon">⏱️</div>
+          <div class="info">
+            <div class="title">Same-Day Results Available</div>
+            <div class="sub">For selected urgent investigations</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-num">60+</span>
+      <span class="stat-label">Tests Offered</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">24hrs</span>
+      <span class="stat-label">Most Turnaround</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">7 Days</span>
+      <span class="stat-label">Open Weekly</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">MLSCN</span>
+      <span class="stat-label">Accredited</span>
+    </div>
+  </div>
+
+  <!-- TESTS CATALOG -->
+  <section class="catalog" id="tests">
+    <div class="catalog-header">
+      <div>
+        <span class="section-tag">Test Catalogue</span>
+        <h2>Our Laboratory Services</h2>
+        <p class="lead-text">All essential investigations needed to support diagnosis, monitoring, and treatment in our
+          hospital and the wider community.</p>
+      </div>
+      <div class="filter-tabs">
+        <button class="tab active" onclick="filterTests('all', this)">All Tests</button>
+        <button class="tab" onclick="filterTests('haematology', this)">Haematology</button>
+        <button class="tab" onclick="filterTests('biochemistry', this)">Biochemistry</button>
+        <button class="tab" onclick="filterTests('microbiology', this)">Microbiology</button>
+        <button class="tab" onclick="filterTests('serology', this)">Serology</button>
+        <button class="tab" onclick="filterTests('urinalysis', this)">Urinalysis</button>
+      </div>
+    </div>
+
+    <div class="notice-bar">
+      <strong>How to request tests:</strong> All tests must be requested by a licensed healthcare provider. Bring your
+      request form and valid ID to our reception. Walk-ins are welcome during working hours.
+    </div>
+
+    <div class="tests-grid" id="testsGrid">
+      <!-- Cards injected by JS -->
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="process" id="process">
+    <span class="section-tag">The Process</span>
+    <h2>From Request to Results</h2>
+    <p class="lead-text">We make the testing process straightforward, respectful, and as fast as clinically possible.
+    </p>
+    <div class="steps-row">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Doctor's Request</div>
+        <div class="step-desc">Obtain a laboratory request form from your attending physician or nurse.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Registration</div>
+        <div class="step-desc">Present at our reception desk with the request form and valid ID. Pay applicable fees.
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Sample Collection</div>
+        <div class="step-desc">Our trained phlebotomists collect the required specimen safely and with minimal
+          discomfort.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Analysis</div>
+        <div class="step-desc">Samples are processed and analysed by our qualified laboratory scientists.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-title">Results</div>
+        <div class="step-desc">Collect printed results at the counter or access them via our online portal using your
+          receipt number.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS PORTAL -->
+  <section class="portal-section" id="results">
+    <span class="section-tag">Patient Portal</span>
+    <h2>Access Your Results Online</h2>
+    <p class="lead-text">Securely retrieve your laboratory report anytime using your unique receipt number.</p>
+
+    <div class="portal-inner">
+      <div class="portal-box">
+        <h3>Retrieve Your Report</h3>
+        <p>Enter your details below to access your results. Results are available once the laboratory has validated and
+          released them.</p>
+        <div class="input-group">
+          <input type="text" placeholder="Receipt / Reference Number">
+          <input type="text" placeholder="Patient Date of Birth (DD/MM/YYYY)">
+          <button
+            onclick="alert('Portal feature coming soon — please collect results at the counter in the meantime.')">Search
+            Results →</button>
+        </div>
+      </div>
+      <ul class="portal-features">
+        <li>
+          <span class="check">✓</span>
+          <span>Results are released only after review by a qualified scientist</span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span>PDF download available for printing or sharing with your doctor</span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span>Results are securely stored for 12 months</span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span>Critical values are telephoned to the requesting clinician immediately</span>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <span>Need help? Call us directly during working hours</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EMERGENCY BAR -->
+  <div class="emergency">
+    <p>🚨 For <strong>URGENT / STAT</strong> investigations — call us directly</p>
+    <a href="tel:+2348000000000">📞 +234 800 000 0000</a>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact" style="background: var(--white);">
+    <span class="section-tag">Find Us</span>
+    <h2>Location & Hours</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+      <div>
+        <p style="margin-bottom:1.5rem; color:var(--grey-mid);">We are conveniently located within [Hospital Name],
+          serving patients from [Town] and the surrounding communities.</p>
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <div>
+            <strong style="color:var(--deep-teal);display:block;margin-bottom:4px;">📍 Address</strong>
+            <span style="color:var(--grey-mid);font-size:0.9rem;">[Hospital Name] Medical Centre, [Street], [Town],
+              [State]</span>
+          </div>
+          <div>
+            <strong style="color:var(--deep-teal);display:block;margin-bottom:4px;">🕐 Working Hours</strong>
+            <span style="color:var(--grey-mid);font-size:0.9rem;">Mon – Fri: 7:00 AM – 6:00 PM<br>Saturday: 8:00 AM –
+              2:00 PM<br>Sunday: Emergency only</span>
+          </div>
+          <div>
+            <strong style="color:var(--deep-teal);display:block;margin-bottom:4px;">📞 Phone</strong>
+            <span style="color:var(--grey-mid);font-size:0.9rem;">+234 800 000 0000</span>
+          </div>
+          <div>
+            <strong style="color:var(--deep-teal);display:block;margin-bottom:4px;">📧 Email</strong>
+            <span style="color:var(--grey-mid);font-size:0.9rem;">lab@hospitaldomain.ng</span>
+          </div>
+        </div>
+      </div>
+      <div
+        style="background:var(--grey-light);border-radius:12px;height:300px;display:flex;align-items:center;justify-content:center;color:var(--grey-mid);font-size:0.9rem;flex-direction:column;gap:8px;">
+        <span style="font-size:2rem;">🗺️</span>
+        <span><strong>[Map Embed Here]</strong></span>
+        <span style="font-size:0.8rem;">Google Maps iframe will be embedded</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="logo-icon">M</div>
+          <span style="color:rgba(255,255,255,0.85);font-family:'DM Serif Display',serif;">MedLab Diagnostic
+            Centre</span>
+        </div>
+        <p>Providing reliable, affordable, and accessible diagnostic laboratory services in support of [Hospital Name]
+          and the health of our community since [Year].</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tests</h4>
+        <ul>
+          <li><a href="#">Haematology</a></li>
+          <li><a href="#">Biochemistry</a></li>
+          <li><a href="#">Microbiology</a></li>
+          <li><a href="#">Serology</a></li>
+          <li><a href="#">Urinalysis</a></li>
+          <li><a href="#">Histopathology</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Patients</h4>
+        <ul>
+          <li><a href="#">Get Results</a></li>
+          <li><a href="#">Preparation Guide</a></li>
+          <li><a href="#">Fee Schedule</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Institution</h4>
+        <ul>
+          <li><a href="#">About the Lab</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Accreditation</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 MedLab Diagnostic Centre. All rights reserved.</span>
+      <span>Accredited by the Medical Laboratory Science Council of Nigeria (MLSCN)</span>
+    </div>
+  </footer>
+
+  <script>
+    const tests = [
+      // HAEMATOLOGY
+      { category: 'haematology', icon: '🩸', name: 'Full Blood Count (FBC)', desc: 'Complete assessment of blood cells including RBC, WBC, platelets and haemoglobin.', turnaround: '2–4 hrs', badge: 'routine' },
+      { category: 'haematology', icon: '🩸', name: 'Malaria Parasite Test', desc: 'Thick and thin blood film microscopy for malaria diagnosis.', turnaround: '1–2 hrs', badge: 'urgent' },
+      { category: 'haematology', icon: '🩸', name: 'ESR (Erythrocyte Sedimentation Rate)', desc: 'Non-specific marker of inflammation used to monitor various conditions.', turnaround: '2 hrs', badge: 'routine' },
+      { category: 'haematology', icon: '🩸', name: 'Blood Grouping & Cross-match', desc: 'ABO and Rhesus blood group determination and compatibility testing.', turnaround: '2–4 hrs', badge: 'urgent' },
+      { category: 'haematology', icon: '🩸', name: 'Haemoglobin Electrophoresis', desc: 'Identification of haemoglobin variants including sickle cell disease.', turnaround: '24–48 hrs', badge: 'routine' },
+      { category: 'haematology', icon: '🩸', name: 'Peripheral Blood Film', desc: 'Morphological examination of blood cells for haematological disorders.', turnaround: '4–6 hrs', badge: 'routine' },
+
+      // BIOCHEMISTRY
+      { category: 'biochemistry', icon: '🧬', name: 'Fasting Blood Sugar (FBS)', desc: 'Blood glucose measurement to screen and monitor diabetes mellitus.', turnaround: '1 hr', badge: 'routine' },
+      { category: 'biochemistry', icon: '🧬', name: 'Random Blood Sugar (RBS)', desc: 'Spot blood glucose level for quick diabetes assessment.', turnaround: '30 min', badge: 'urgent' },
+      { category: 'biochemistry', icon: '🧬', name: 'Liver Function Tests (LFTs)', desc: 'ALT, AST, ALP, bilirubin and total protein for liver health assessment.', turnaround: '4–6 hrs', badge: 'routine' },
+      { category: 'biochemistry', icon: '🧬', name: 'Kidney Function Tests (KFTs)', desc: 'Urea, creatinine and electrolytes to assess renal function.', turnaround: '4–6 hrs', badge: 'routine' },
+      { category: 'biochemistry', icon: '🧬', name: 'Lipid Profile', desc: 'Total cholesterol, HDL, LDL and triglycerides for cardiovascular risk assessment.', turnaround: '4–6 hrs', badge: 'routine' },
+      { category: 'biochemistry', icon: '🧬', name: 'HbA1c', desc: 'Three-month average blood sugar for long-term diabetes monitoring.', turnaround: '24 hrs', badge: 'special' },
+      { category: 'biochemistry', icon: '🧬', name: 'Thyroid Function Tests', desc: 'TSH, T3 and T4 levels for thyroid disorder evaluation.', turnaround: '24–48 hrs', badge: 'special' },
+      { category: 'biochemistry', icon: '🧬', name: 'Serum Electrolytes', desc: 'Sodium, potassium, chloride and bicarbonate levels.', turnaround: '4–6 hrs', badge: 'urgent' },
+
+      // MICROBIOLOGY
+      { category: 'microbiology', icon: '🦠', name: 'Urine Culture & Sensitivity', desc: 'Bacterial culture from urine with antibiotic susceptibility testing.', turnaround: '48–72 hrs', badge: 'routine' },
+      { category: 'microbiology', icon: '🦠', name: 'Blood Culture & Sensitivity', desc: 'Detection of bacteraemia with targeted antibiotic guidance.', turnaround: '48–72 hrs', badge: 'urgent' },
+      { category: 'microbiology', icon: '🦠', name: 'Stool Microscopy & Culture', desc: 'Identification of intestinal parasites, bacteria and ova in stool.', turnaround: '24–48 hrs', badge: 'routine' },
+      { category: 'microbiology', icon: '🦠', name: 'HVS Culture & Sensitivity', desc: 'High vaginal swab for detection of genital tract infections.', turnaround: '48–72 hrs', badge: 'routine' },
+      { category: 'microbiology', icon: '🦠', name: 'Sputum AFB Smear', desc: 'Acid-fast bacilli smear for tuberculosis diagnosis.', turnaround: '24 hrs', badge: 'urgent' },
+      { category: 'microbiology', icon: '🦠', name: 'Wound Swab C&S', desc: 'Culture of wound discharge to guide wound infection treatment.', turnaround: '48–72 hrs', badge: 'routine' },
+
+      // SEROLOGY
+      { category: 'serology', icon: '🔬', name: 'HIV 1 & 2 Screening', desc: 'Rapid and confirmatory HIV antibody testing.', turnaround: '1–2 hrs', badge: 'routine' },
+      { category: 'serology', icon: '🔬', name: 'Hepatitis B Surface Antigen (HBsAg)', desc: 'Screening test for active Hepatitis B infection.', turnaround: '2–4 hrs', badge: 'routine' },
+      { category: 'serology', icon: '🔬', name: 'Hepatitis C Antibody', desc: 'Detection of Hepatitis C virus exposure.', turnaround: '2–4 hrs', badge: 'routine' },
+      { category: 'serology', icon: '🔬', name: 'Widal Test', desc: 'Agglutination test for suspected typhoid fever.', turnaround: '2–4 hrs', badge: 'routine' },
+      { category: 'serology', icon: '🔬', name: 'VDRL / RPR', desc: 'Screening test for syphilis infection.', turnaround: '2–4 hrs', badge: 'routine' },
+      { category: 'serology', icon: '🔬', name: 'Rheumatoid Factor (RF)', desc: 'Detection of antibodies associated with rheumatoid arthritis.', turnaround: '4 hrs', badge: 'special' },
+      { category: 'serology', icon: '🔬', name: 'Pregnancy Test (β-hCG)', desc: 'Urine and serum pregnancy confirmation.', turnaround: '30 min', badge: 'urgent' },
+
+      // URINALYSIS
+      { category: 'urinalysis', icon: '🧫', name: 'Urinalysis (Dipstick)', desc: 'Rapid 10-parameter urine test strip for screening.', turnaround: '30 min', badge: 'routine' },
+      { category: 'urinalysis', icon: '🧫', name: 'Urine Microscopy', desc: 'Microscopic examination of urine sediment for casts, cells and organisms.', turnaround: '1–2 hrs', badge: 'routine' },
+      { category: 'urinalysis', icon: '🧫', name: 'Urine Protein (24hr)', desc: 'Quantification of protein in 24-hour urine collection for renal monitoring.', turnaround: '24 hrs', badge: 'routine' },
+      { category: 'urinalysis', icon: '🧫', name: 'Urine Microalbumin', desc: 'Early detection of diabetic nephropathy and kidney damage.', turnaround: '4 hrs', badge: 'special' },
+    ];
+
+    function badgeClass(b) {
+      return b === 'urgent' ? 'badge-urgent' : b === 'special' ? 'badge-special' : 'badge-routine';
+    }
+    function badgeLabel(b) {
+      return b === 'urgent' ? 'Urgent' : b === 'special' ? 'Specialist' : 'Routine';
+    }
+
+    function renderTests(filter) {
+      const grid = document.getElementById('testsGrid');
+      const list = filter === 'all' ? tests : tests.filter(t => t.category === filter);
+      grid.innerHTML = list.map(t => `
+    <div class="test-card">
+      <div class="test-card-top">
+        <div class="test-icon">${t.icon}</div>
+        <span class="test-badge ${badgeClass(t.badge)}">${badgeLabel(t.badge)}</span>
+      </div>
+      <div class="test-name">${t.name}</div>
+      <div class="test-desc">${t.desc}</div>
+      <div class="test-meta">
+        <span>⏱ ${t.turnaround}</span>
+        <span>📁 ${t.category.charAt(0).toUpperCase() + t.category.slice(1)}</span>
+      </div>
+    </div>
+  `).join('');
+    }
+
+    function filterTests(cat, btn) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      renderTests(cat);
+    }
+
+    renderTests('all');
+  </script>
+</body>
+
+</html>
