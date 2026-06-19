@@ -5,108 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedLab Diagnostic Centre</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gemi.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
-    <style>
-        body {
-            margin: 0px;
-            background-color: lightblue;
-            font-family: "Inter", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: weight;
-            font-style: normal;
-        }
-
-        nav {
-            position: sticky;
-            top: 0px;
-            display: flex;
-            justify-content: space-around;
-            background-color: #01264D;
-            align-items: center;
-
-        }
-
-        #links ul {
-            list-style-type: none;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-
-        }
-
-        #links ul * {
-            color: white;
-            padding: 15px;
-            background-color: #01264D;
-        }
-
-        #links a {
-            text-decoration: none;
-
-        }
-
-        #logo {
-            font-size: 3em;
-            text-align: center;
-            align-content: center;
-            height: 10vh;
-            width: 10vh;
-            background-color: aliceblue;
-            border-radius: 50%;
-            color: #01264D;
-
-        }
-
-        #block-1 {
-            width: 50%;
-            text-align: center;
-            margin-left: 10px;
-        }
-
-        #block-1 h1 {
-            font-size: 3.5em;
-        }
-
-        #hero_section {
-            background-image: url("graphics/wp10488394-medical-lab-wallpapers.jpg");
-            background-size: cover;
-            height: 100vh;
-            align-content: center;
-            color: rgb(20, 11, 121);
-
-        }
-
-        #credentials {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            height: auto;
-        }
-
-        #footer-bx-i {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 10vh;
-            color: white;
-        }
-
-        #footer-top {
-            margin: 0px 5%;
-        }
-
-        /* #footer-mid{
-            column-count: 3;
-        } */
-        footer {
-            background-color: #01264D;
-            padding-left: 10px;
-            padding-top: 20px;
-        }
-    </style>
     <script src="https://kit.fontawesome.com/f2d29c6420.js" crossorigin="anonymous"></script>
 
 </head>
@@ -116,20 +18,15 @@
 
     </header>
     <nav>
-        <div id="logo">M</div>
+        <div id="logo"><img src="graphics/stripped/a_decent_logo_of_the_word_medlab-removebg-preview.png" alt=""></div>
         <div id="links">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">About</a></li>
-                <li><select name="book" id="book">
-                        <option value="">Haematology</option>
-                        <option value="">Biochemistry</option>
-                        <option value="">Microbiology</option>
-                        <option value="">Serelogy</option>
-                        <option value="">Urinalysis</option>
-                    </select></li>
-                <li>How it works</li>
+                <li><a href="#tests">Tests</a></li>
+                <li><a href="#footer-top">Contact</a></li>
+                <!-- <li><a href="#">About</a></li> -->
+                <li><a href="#patient-portal">Result</a></li>
+  
+                <li><a href="#how-it-works">How it works</a></li>
             </ul>
         </div>
     </nav>
@@ -139,27 +36,28 @@
                 <h1>Diagnostic Care You Can Trust, Close to Home</h1>
                 <p>Accredited laboratory services supporting [Hospital Name] — delivering accurate, timely results for
                     the healthcare decisions that matter most.</p>
+                <div id="credentials" class="centerText">
+                    <div id="cred-i" class="creds">
+                        <h1>60+</h1>
+                        <p>Tests offered</p>
+                    </div>
+                    <div id="cred-ii" class="creds">
+                        <h1>24hrs</h1>
+                        <p>Most Turnaround</p>
+                    </div>
+                    <div id="cred-iii" class="creds">
+                        <h1>7 Days</h1>
+                        <p>open weekly</p>
+                    </div>
+                    <div id="cred-iv" class="creds">
+                        <h1>MLSCN</h1>
+                        <p>Accredited</p>
+                    </div>
+                </div>
             </div>
 
         </div>
-        <div id="credentials" class="to-indent">
-            <div id="cred-i" class="creds">
-                <h1>60+</h1>
-                <p>Tests offered</p>
-            </div>
-            <div id="cred-ii" class="creds">
-                <h1>24hrs</h1>
-                <p>Most Turnaround</p>
-            </div>
-            <div id="cred-iii" class="creds">
-                <h1>7 Days</h1>
-                <p>open weekly</p>
-            </div>
-            <div id="cred-iv" class="creds">
-                <h1>MLSCN</h1>
-                <p>Accredited</p>
-            </div>
-        </div>
+
         <div id="main-body">
             <div id="test-catalogue" class="to-indent">
                 <div id="tc-sec-i">
@@ -169,20 +67,107 @@
                         treatment in our hospital
                         and the wider community.</p>
                 </div>
-                <div id="tc-sec-ii">
-                    <div class="tests">Haematology</div>
-                    <div class="tests">Biochemistry</div>
-                    <div class="tests">Microbiology</div>
-                    <div class="tests">Serology</div>
-                    <div class="tests">Urinalysis</div>
-                </div>
+                <!-- <div id="tc-sec-ii">
+                    <div class="tests centerText">Haematology</div>
+                    <div class="tests centerText">Biochemistry</div>
+                    <div class="tests centerText">Microbiology</div>
+                    <div class="tests centerText">Serology</div>
+                    <div class="tests centerText">Urinalysis</div> -->
+
+                <!-- TESTS CATALOG -->
+                <section class="catalog internalAnchors" id="tests">
+                    <div class="catalog-header">
+
+                        <div class="filter-tabs">
+                            <button class="tab active" onclick="filterTests('all', this)">All Tests</button>
+                            <button class="tab" onclick="filterTests('haematology', this)">Haematology</button>
+                            <button class="tab" onclick="filterTests('biochemistry', this)">Biochemistry</button>
+                            <button class="tab" onclick="filterTests('microbiology', this)">Microbiology</button>
+                            <button class="tab" onclick="filterTests('serology', this)">Serology</button>
+                            <button class="tab" onclick="filterTests('urinalysis', this)">Urinalysis</button>
+                        </div>
+                    </div>
+
+                    <div class="notice-bar">
+                        <strong>How to request tests:</strong> All tests must be requested by a licensed healthcare
+                        provider. Bring your
+                        request form and valid ID to our reception. Walk-ins are welcome during working hours.
+                    </div>
+
+                    <div class="tests-grid" id="testsGrid">
+                        <!-- Cards injected by JS -->
+                    </div>
+                </section>
+                <!-- MEDICAL INSIGHTS CONTENT CARDS SECTION -->
+                <section id="insights" class="to-indent">
+                    <div class="insights-grid">
+
+                        <!-- CARD 1: BIOCHEMISTRY -->
+                        <div class="insight-card">
+                            <h2>Understanding Your Fasting Blood Sugar (FBS)</h2>
+                            <p>A Fasting Blood Sugar test measures the amount of glucose in your blood after an
+                                overnight fast. It is one of the most reliable ways to screen for prediabetes and type 2
+                                diabetes. If you have been experiencing frequent thirst, fatigue, or blurry vision, a
+                                simple morning blood draw can give your doctor the data needed to keep your metabolic
+                                health on track.</p>
+                            <a href="#tests" class="insight-link"
+                                onclick="filterTests('biochemistry', document.querySelector('.tab:nth-child(3)'))">View
+                                biochemistry options &rarr;</a>
+                        </div>
+
+                        <!-- CARD 2: HAEMATOLOGY -->
+                        <div class="insight-card">
+                            <h2>Why a Full Blood Count (FBC) is Your Baseline Health Map</h2>
+                            <p>Your blood cells tell an incredible story about your overall wellness. An FBC evaluates
+                                your red blood cells for anemia, white blood cells for hidden infections or immune
+                                responses, and platelets for clotting health. It is the most frequently requested
+                                baseline investigation because it captures changes in your body long before physical
+                                symptoms appear.</p>
+                            <a href="#tests" class="insight-link"
+                                onclick="filterTests('haematology', document.querySelector('.tab:nth-child(2)'))">View
+                                haematology options &rarr;</a>
+                        </div>
+
+                        <!-- CARD 3: PREVENTIVE SCREENING -->
+                        <div class="insight-card">
+                            <h2>How Often Should You Run Routine Lab Checks?</h2>
+                            <p>Most health conditions, including high cholesterol and early kidney strain, do not show
+                                warning signs in their initial stages. Medical consensus recommends comprehensive
+                                laboratory screening at least once a year for adults over 30. Regular screening captures
+                                small biological changes early, turning potential emergencies into easily manageable
+                                health updates.</p>
+                            <a href="#tests" class="insight-link"
+                                onclick="filterTests('all', document.querySelector('.tab:nth-child(1)'))">Learn about
+                                routine checks &rarr;</a>
+                        </div>
+
+                        <!-- CARD 4: CONFIDENTIALITY & PORTAL -->
+                        <div class="insight-card">
+                            <h2>Secure, Confidential Screening on Your Terms</h2>
+                            <p>Early detection is everything when it comes to infectious diseases, reproductive
+                                wellness, or metabolic changes. MedLab provides entirely confidential screening
+                                environments for rapid pregnancy confirmation, infectious panels, and routine dipstick
+                                screenings. Get precise results delivered quickly to your private online patient portal
+                                without the long hospital wait times.</p>
+                            <a href="#tests" class="insight-link"
+                                onclick="filterTests('all', document.querySelector('.tab:nth-child(1)'))">Explore
+                                screening panels &rarr;</a>
+                        </div>
+
+                    </div>
+                </section>
+
+
+                <!-- </div> -->
             </div>
-            <div id="how-it-works" class="to-indent">
+            <div id="how-it-works" class="to-indent internalAnchors centerText">
                 <h1>How it works</h1>
                 <div id="process">
                     <div class="procedure">
                         <div class="upper-cedure">
                             <span>1</span>
+                            <img src="graphics/stripped/medical-report-isolated-transparent-background_1033579-236431-removebg-preview.png"
+                                alt="" class="popOutImg">
                         </div>
                         <div class="lower-cedure">
                             <h1>Doctor's request</h1>
@@ -192,6 +177,8 @@
                     <div class="procedure">
                         <div class="upper-cedure">
                             <span>2</span>
+                            <img src="graphics/stripped/medical-reception-desk-icon-patient-check-in-healthcare-administration-and-service-vector-removebg-preview.png"
+                                alt="" class="popOutImg">
                         </div>
                         <div class="lower-cedure">
                             <h1>Registration</h1>
@@ -202,6 +189,8 @@
                     <div class="procedure">
                         <div class="upper-cedure">
                             <span>3</span>
+                            <img src="graphics/stripped/istockphoto-1496758825-612x612-removebg-preview.png" alt=""
+                                class="popOutImg">
                         </div>
                         <div class="lower-cedure">
                             <h1>Sample Collection</h1>
@@ -212,6 +201,8 @@
                     <div class="procedure">
                         <div class="upper-cedure">
                             <span>4</span>
+                            <img src="graphics/stripped/pngtree-blood-sample-in-test-tube-held-by-gloved-hand-png-image_19401155-removebg-preview.png"
+                                alt="" class="popOutImg">
                         </div>
                         <div class="lower-cedure">
                             <h1>Analysis</h1>
@@ -221,6 +212,8 @@
                     <div class="procedure">
                         <div class="upper-cedure">
                             <span>5</span>
+                            <img src="graphics/stripped/healthplans-blog-2-removebg-preview.png" alt=""
+                                class="popOutImg">
                         </div>
                         <div class="lower-cedure">
                             <h1>Results</h1>
@@ -230,7 +223,32 @@
                     </div>
                 </div>
             </div>
-            <div id="patient-portal">
+            <!-- FEATURE OVERVIEW BANNER SECTION -->
+            <section id="feature-banner" class="to-indent">
+                <div class="feature-container">
+
+                    <!-- LEFT COLUMN: MASKED GRAPHIC -->
+                    <div class="feature-media">
+                        <!-- Replace with your actual phlebotomy/lab photo path -->
+                        <img src="graphics/stripped/istockphoto-1496758825-612x612-removebg-preview.png"
+                            alt="MedLab Diagnostic Clinic Center Care">
+                    </div>
+
+                    <!-- RIGHT COLUMN: CONTENT TEXT LAYOUT -->
+                    <div class="feature-content">
+                        <span class="feature-tag">Fast Reliable Service</span>
+                        <h2>Accredited Diagnostic Care Across the Region</h2>
+                        <p>Our mission is to make premium, high-integrity laboratory analytics accessible to everyone.
+                            By utilizing advanced automated testing equipment and maintaining strict MLSCN quality
+                            controls, we deliver the accurate results you and your doctor need to make the health
+                            choices that matter most.</p>
+                        <a href="#footer-top" class="feature-btn">View locations</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <div id="patient-portal" class="internalAnchors">
                 <p>Patient Portal</p>
                 <h1>Access Your Test Results Online</h1>
                 <p>Securely retrieve your laboratory report anytime using your unique receipt number.</p>
@@ -244,10 +262,13 @@
                         <input type="submit" id="submit-btn">
                     </form>
                     <div id="patient-tips">
-                        <p><i class="fa-solid fa-circle-check"></i>Results are released only after review by a qualified scientist</p>
-                        <p><i class="fa-solid fa-circle-check"></i>PDF download available for printing or sharing with your doctor</p>
+                        <p><i class="fa-solid fa-circle-check"></i>Results are released only after review by a qualified
+                            scientist</p>
+                        <p><i class="fa-solid fa-circle-check"></i>PDF download available for printing or sharing with
+                            your doctor</p>
                         <p><i class="fa-solid fa-circle-check"></i>Results are securely stored for 12 months</p>
-                        <p><i class="fa-solid fa-circle-check"></i>Critical values are telephoned to the requesting clinician immediately</p>
+                        <p><i class="fa-solid fa-circle-check"></i>Critical values are telephoned to the requesting
+                            clinician immediately</p>
                         <p><i class="fa-solid fa-circle-check"></i>Need help? Call us directly during working hours</p>
                     </div>
                 </div>
@@ -256,7 +277,8 @@
     </main>
     <footer>
         <div id="footer-top">
-            <div id="logo">M</div>
+            <div id="logo"><img src="graphics/stripped/a_decent_logo_of_the_word_medlab-removebg-preview.png" alt="">
+            </div>
             <div id="footer-bx-i">
                 <div id="location">
                     <p>Head office: <b>[Location of Head Office]</b></p>
@@ -304,6 +326,89 @@
             <p>Accredited by the Medical Laboratory Science Council of Nigeria (MLSCN)</p>
         </div>
     </footer>
+    <script>
+        const tests = [
+            // HAEMATOLOGY
+            { category: 'haematology', name: 'Full Blood Count (FBC)', desc: 'Complete assessment of blood cells including RBC, WBC, platelets and haemoglobin.', turnaround: '2–4 hrs', badge: 'routine' },
+            { category: 'haematology', name: 'Malaria Parasite Test', desc: 'Thick and thin blood film microscopy for malaria diagnosis.', turnaround: '1–2 hrs', badge: 'urgent' },
+            { category: 'haematology', name: 'ESR (Erythrocyte Sedimentation Rate)', desc: 'Non-specific marker of inflammation used to monitor various conditions.', turnaround: '2 hrs', badge: 'routine' },
+            { category: 'haematology', name: 'Blood Grouping & Cross-match', desc: 'ABO and Rhesus blood group determination and compatibility testing.', turnaround: '2–4 hrs', badge: 'urgent' },
+            { category: 'haematology', name: 'Haemoglobin Electrophoresis', desc: 'Identification of haemoglobin variants including sickle cell disease.', turnaround: '24–48 hrs', badge: 'routine' },
+            { category: 'haematology', name: 'Peripheral Blood Film', desc: 'Morphological examination of blood cells for haematological disorders.', turnaround: '4–6 hrs', badge: 'routine' },
+
+            // BIOCHEMISTRY
+            { category: 'biochemistry', name: 'Fasting Blood Sugar (FBS)', desc: 'Blood glucose measurement to screen and monitor diabetes mellitus.', turnaround: '1 hr', badge: 'routine' },
+            { category: 'biochemistry', name: 'Random Blood Sugar (RBS)', desc: 'Spot blood glucose level for quick diabetes assessment.', turnaround: '30 min', badge: 'urgent' },
+            { category: 'biochemistry', name: 'Liver Function Tests (LFTs)', desc: 'ALT, AST, ALP, bilirubin and total protein for liver health assessment.', turnaround: '4–6 hrs', badge: 'routine' },
+            { category: 'biochemistry', name: 'Kidney Function Tests (KFTs)', desc: 'Urea, creatinine and electrolytes to assess renal function.', turnaround: '4–6 hrs', badge: 'routine' },
+            { category: 'biochemistry', name: 'Lipid Profile', desc: 'Total cholesterol, HDL, LDL and triglycerides for cardiovascular risk assessment.', turnaround: '4–6 hrs', badge: 'routine' },
+            { category: 'biochemistry', name: 'HbA1c', desc: 'Three-month average blood sugar for long-term diabetes monitoring.', turnaround: '24 hrs', badge: 'special' },
+            { category: 'biochemistry', name: 'Thyroid Function Tests', desc: 'TSH, T3 and T4 levels for thyroid disorder evaluation.', turnaround: '24–48 hrs', badge: 'special' },
+            { category: 'biochemistry', name: 'Serum Electrolytes', desc: 'Sodium, potassium, chloride and bicarbonate levels.', turnaround: '4–6 hrs', badge: 'urgent' },
+
+            // MICROBIOLOGY
+            { category: 'microbiology', name: 'Urine Culture & Sensitivity', desc: 'Bacterial culture from urine with antibiotic susceptibility testing.', turnaround: '48–72 hrs', badge: 'routine' },
+            { category: 'microbiology', name: 'Blood Culture & Sensitivity', desc: 'Detection of bacteraemia with targeted antibiotic guidance.', turnaround: '48–72 hrs', badge: 'urgent' },
+            { category: 'microbiology', name: 'Stool Microscopy & Culture', desc: 'Identification of intestinal parasites, bacteria and ova in stool.', turnaround: '24–48 hrs', badge: 'routine' },
+            { category: 'microbiology', name: 'HVS Culture & Sensitivity', desc: 'High vaginal swab for detection of genital tract infections.', turnaround: '48–72 hrs', badge: 'routine' },
+            { category: 'microbiology', name: 'Sputum AFB Smear', desc: 'Acid-fast bacilli smear for tuberculosis diagnosis.', turnaround: '24 hrs', badge: 'urgent' },
+            { category: 'microbiology', name: 'Wound Swab C&S', desc: 'Culture of wound discharge to guide wound infection treatment.', turnaround: '48–72 hrs', badge: 'routine' },
+
+            // SEROLOGY
+            { category: 'serology', name: 'HIV 1 & 2 Screening', desc: 'Rapid and confirmatory HIV antibody testing.', turnaround: '1–2 hrs', badge: 'routine' },
+            { category: 'serology', name: 'Hepatitis B Surface Antigen (HBsAg)', desc: 'Screening test for active Hepatitis B infection.', turnaround: '2–4 hrs', badge: 'routine' },
+            { category: 'serology', name: 'Hepatitis C Antibody', desc: 'Detection of Hepatitis C virus exposure.', turnaround: '2–4 hrs', badge: 'routine' },
+            { category: 'serology', name: 'Widal Test', desc: 'Agglutination test for suspected typhoid fever.', turnaround: '2–4 hrs', badge: 'routine' },
+            { category: 'serology', name: 'VDRL / RPR', desc: 'Screening test for syphilis infection.', turnaround: '2–4 hrs', badge: 'routine' },
+            { category: 'serology', name: 'Rheumatoid Factor (RF)', desc: 'Detection of antibodies associated with rheumatoid arthritis.', turnaround: '4 hrs', badge: 'special' },
+            { category: 'serology', name: 'Pregnancy Test (β-hCG)', desc: 'Urine and serum pregnancy confirmation.', turnaround: '30 min', badge: 'urgent' },
+
+            // URINALYSIS
+            { category: 'urinalysis', name: 'Urinalysis (Dipstick)', desc: 'Rapid 10-parameter urine test strip for screening.', turnaround: '30 min', badge: 'routine' },
+            { category: 'urinalysis', name: 'Urine Microscopy', desc: 'Microscopic examination of urine sediment for casts, cells and organisms.', turnaround: '1–2 hrs', badge: 'routine' },
+            { category: 'urinalysis', name: 'Urine Protein (24hr)', desc: 'Quantification of protein in 24-hour urine collection for renal monitoring.', turnaround: '24 hrs', badge: 'routine' },
+            { category: 'urinalysis', name: 'Urine Microalbumin', desc: 'Early detection of diabetic nephropathy and kidney damage.', turnaround: '4 hrs', badge: 'special' },
+        ];
+
+        function badgeClass(b) {
+            return b === 'urgent' ? 'badge-urgent' : b === 'special' ? 'badge-special' : 'badge-routine';
+        }
+        function badgeLabel(b) {
+            return b === 'urgent' ? 'Urgent' : b === 'special' ? 'Specialist' : 'Routine';
+        }
+
+        function renderTests(filter) {
+            const grid = document.getElementById('testsGrid');
+            const list = filter === 'all' ? tests : tests.filter(t => t.category === filter);
+
+            // UPDATED STRUCTURE: Mapped to perfectly utilize the new distinguished CSS rules
+            grid.innerHTML = list.map(t => `
+        <div class="test-card">
+          <div class="test-card-top">
+            <span class="card-category-badge">${t.category}</span>
+            <span class="test-badge ${badgeClass(t.badge)}">${badgeLabel(t.badge)}</span>
+          </div>
+          <div class="test-name">${t.name}</div>
+          <div class="test-desc">${t.desc}</div>
+          <div class="test-meta">
+            <span>${t.turnaround}</span>
+            <span>ID: ${t.category.substring(0, 4)}</span>
+          </div>
+        </div>
+      `).join('');
+        }
+
+        function filterTests(cat, btn) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            renderTests(cat);
+        }
+
+        // Fire default render engine
+        renderTests('all');
+    </script>
+
+
 </body>
 
 </html>
