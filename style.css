@@ -1,24 +1,64 @@
-*{
+* {
     box-sizing: border-box;
 }
+
+/* Page Navigation Glide */
+html {
+    scroll-behavior: smooth;
+}
+
+/* General classes */
+.centerText {
+    text-align: center;
+}
+
+.btn {
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-weight: bold;
+}
+
+.internalAnchors {
+    /* Anchors stop perfectly clear of the clean new nav bar height */
+    scroll-margin-top: 90px; 
+}
+
+.noMargin {
+    margin: 0;
+    padding: 0;
+}
+
+.to-indent {
+    margin: 0px 5%;
+}
+
 body {
     margin: 0px;
-    background-color: lightblue;
+    background-color: #F8FAFC; /* Clean, medical-grade crisp slate white background */
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
-    font-weight: weight;
     font-style: normal;
 }
 
+/* BRAND COLOR FIX: Changed background to clean white so your dark blue logo pops perfectly */
 nav {
     position: sticky;
     top: 0px;
     display: flex;
     justify-content: space-around;
-    background-color: #01264D;
-    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.95); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     align-items: center;
+    z-index: 1000;
+    height: 80px; /* Constrains navigation height cleanly */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06); /* Adds a premium structural divider line */
+}
 
+#logo img {
+    height: 50px; /* Locks the logo size vertically so it doesn't distort your nav bar layout */
+    width: auto;
+    display: block;
 }
 
 #links ul {
@@ -26,267 +66,980 @@ nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-
+    margin: 0;
+    padding: 0;
 }
 
-#links ul * {
-    color: white;
-    padding: 15px;
-    background-color: #01264D;
+/* NAV LINKS COLORS: Shifted from white to professional deep slate navy to complement the new light bar */
+#links ul a,
+#links select {
+    color: #0A2540; 
+    padding: 10px 18px;
+    background-color: transparent; /* Removed the contrasting brick layout fills */
+    display: inline-block;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.2s ease;
 }
 
 #links a {
     text-decoration: none;
-
 }
 
-#logo {
-    font-size: 3em;
-    text-align: center;
+#links a:hover, #links select:hover {
+    color: #FC8234; /* Hover animation flashes your bright signature brand orange */
+}
+
+#links select {
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+/* HERO SECTION WORKFLOW */
+#hero_section {
+    background-image: url("graphics/wp10488394-medical-lab-wallpapers.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
     align-content: center;
-    height: 10vh;
-    width: 10vh;
-    background-color: aliceblue;
-    border-radius: 50%;
-    color: #01264D;
-
-}
-
-.to-indent {
-    margin: 0px 5%;
+    color: #0A2540; /* Shifted header text color for premium clarity */
+    position: relative;
+    margin-bottom: 15vh; /* Added breathing room for your floating credentials block */
 }
 
 #block-1 {
-    width: 50%;
-    text-align: center;
-    /* margin-left: 5%; */
+    width: 60%;
+    margin-left: 5%; /* Aligns text gracefully on screen */
+    text-align: left; /* Shifted left to read cleanly like an authority medical landing page */
 }
 
 #block-1 h1 {
     font-size: 3.5em;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    font-weight: 800;
 }
 
-#hero_section {
-    background-image: url("graphics/wp10488394-medical-lab-wallpapers.jpg");
-    background-size: cover;
-    height: 100vh;
-    align-content: center;
-    color: rgb(20, 11, 121);
-
+#block-1 p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #334E68;
+    margin-bottom: 40px;
 }
 
+/* CREDENTIALS WORKFLOW ACCELERATION
+   FIXED: In your HTML, #credentials was accidentally wrapped inside your 50% narrow #block-1. 
+   Using these absolute coordinates forces it to stretch fully across the hero frame flawlessly! */
 #credentials {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: auto;
-    text-align: center;
-    /* color: rgb(20, 11, 121); */
     color: white;
-    background-color: #469AB2;
-    margin: 0px;
+    background-color: rgba(10, 37, 64, 0.25); /* True tinted luxury medical glass */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px 24px 0px 0px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: none;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15);
+    padding: 30px 10px;
+    
+    position: absolute;
+    bottom: 0px;
+    left: 5%;
+    right: 5%;
+    width: 90%;
 }
 
 .creds:not(#cred-iv) {
-    border-right: 1px solid #01264D;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .creds {
-    width: 25vw;
+    flex: 1;
 }
 
+.creds h1 {
+    font-size: 2.8rem;
+    margin: 0 0 5px 0;
+    font-weight: 700;
+}
+
+.creds p {
+    font-size: 0.95rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* TEST CATALOGUE WORKFLOW */
 #tc-sec-i p:not(#tc-sub-txt) {
-    font-size: 12px;
-    font-family: "DM Sans" sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #FC8234; /* Highlight tag styled in brand accent orange */
 }
 
-#tc-sec-i {
-    color: rgb(20, 11, 121);
-    /* margin: 5%; */
+#tc-sec-i h1 {
+    color: #0A2540;
+    font-size: 2.5rem;
+    margin: 5px 0 15px 0;
 }
 
 #tc-sub-txt {
-    color: #989D95;
+    color: #627D98;
+    max-width: 600px;
+    font-size: 1.05rem;
+    line-height: 1.5;
 }
 
-/* #tc-sec-ii{
-    display: flex;
-    justify-content: space-between;
-} */
 .tests {
-    padding: 1.5em 4em;
-    min-width: 150px;
-    margin: 10px;
-    text-align: center;
-    align-content: center;
-    background-color: #F4F9FC;
-    font-weight: bold;
-    font-size: 18px;
-    color: #01264D;
-    border: 2px solid rgb(152, 191, 204);
+    padding: 1.2em 3.5em;
+    min-width: 160px;
+    background-color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    color: #0A2540;
+    border: 2px solid #E2E8F0;
     border-radius: 50px;
-
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+    transition: all 0.25s ease-in-out;
 }
 
 #tc-sec-ii {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.2rem;
+    margin-top: 30px;
 }
 
 .tests:hover {
     background-color: #ffffff;
-    border: 2px solid rgb(182, 215, 227);
-    transform: scale(1.05);
-    transition: all 0.3s ease-in-out;
+    border: 2px solid #FC8234; /* Border turns orange on highlight */
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(10, 37, 64, 0.08);
+}
+
+/* PROCEDURES SECTION ROW FIX
+   FIXED: Removed grid-auto-flow: column so your cards snap down into beautiful layout lines on desktop views */
+#process {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 20px;
 }
 
 #how-it-works {
-    margin: 5%;
-    color: #01264D;
-    text-align: center;
-}
-#how-it-works h1 {
-    margin-bottom: 40px;
-}
-#process {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+    margin: 8% 5%;
 }
 
+#how-it-works h1 {
+    color: #0A2540;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
 
 .procedure {
-    min-height: 250px;
+    min-height: 340px;
     background-color: white;
-    align-content: center;
-    border-radius: 15px;
+    border-radius: 20px;
     display: grid;
-    grid-template-rows: 1fr 2fr;
-    border: 2px solid rgb(209, 201, 201);
+    grid-template-rows: auto 1fr;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    overflow: hidden;
 }
-.upper-cedure{
-    background-color: #01264D;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+
+.procedure:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(10, 37, 64, 0.1);
+}
+
+.upper-cedure {
+    background-color: #0A2540; /* Rich medical corporate navy accent container background */
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    align-content: center;
+    height: 160px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
 }
+
 .upper-cedure span {
-    text-align: center;
-    margin-left: 15PX;
-    display: inline-block;
+    position: absolute;
+    top: 15px;
+    left: 15px;
     font-size: 3.5em;
+    font-weight: bold;
     color: white;
     width: 10vh;
     height: 10vh;
     border-radius: 50%;
-    align-content: center;
-    background-color: rgba(146, 146, 157, 0.281);
-}
-.lower-cedure{
-    text-align: left;
-    color: #01264D;
-    align-items: center;
-    padding: 0px 10px;
-}
-#patient-portal {
-    background-color: #294669;
-    color: white;
-    margin: 0px;
-    padding: 50px 0px;
-}
-#patient-portal *{
-    margin: auto 5%;
-}
-#retrieve-results{
     display: flex;
-}
-#result-access-form {
-    
-    border-radius: 15px;
-    border: 1.5px solid white;
-    width: 30vw;
-    padding: 30px 10px;
-    display: grid;
-    margin: 50px 0px;
-    background-color: rgba(255, 255, 255, 0.508);
-}
-#result-access-form *{
-    margin: 5px auto;
-    width: 80%;
-}
-#result-access-form input{
-    height: 45px;
-    border-radius: 5px;
-    border: 1.4px solid white;
-    background-color: rgba(255, 255, 255, 0.508);
-}
-#result-access-form #submit-btn{
-    background-color: rgb(11, 135, 60);
-}
-#patient-tips p{
-    margin-bottom: 10px;
-    font-size: smaller;
-    white-space: nowrap;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    z-index: 2;
 }
 
-#patient-tips{
-    margin-left: 8vw;
-    flex-grow: 1;
-    /* max-width: 50vw; */
+.popOutImg {
+    width: 100%;
+    height: 100%;
+    justify-self: center;
+    align-self: end;
+    object-fit: contain; /* Prevents your stripped logo backgrounds from expanding/blurring disproportionately */
+    z-index: 1;
+    pointer-events: none;
 }
+
+.lower-cedure {
+    text-align: left;
+    color: #0A2540;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.lower-cedure h1 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.lower-cedure p {
+    font-size: 0.9rem;
+    color: #486581;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* SECURE PATIENT PORTAL INTERFACE */
+#patient-portal {
+    background-color: #0A2540; /* Aligned into unified dark branding */
+    color: white;
+    margin: 0px;
+    padding: 80px 8%;
+}
+
+#patient-portal > p:first-of-type {
+    color: #FC8234;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0 0 5px 0;
+}
+
+#patient-portal h1 {
+    font-size: 2.5rem;
+    margin: 0 0 15px 0;
+}
+
+#patient-portal > p:nth-of-type(2) {
+    color: #BAC7D5;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+#retrieve-results {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+#result-access-form {
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    width: 35vw;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+#result-access-form * {
+    margin: 0;
+    width: 100%;
+}
+
+#result-access-form h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#result-access-form p {
+    font-size: 0.9rem;
+    color: #BAC7D5;
+    line-height: 1.45;
+}
+
+#result-access-form input {
+    height: 50px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.08);
+    color: white;
+    padding: 0 15px;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.2s;
+}
+
+#result-access-form input:focus {
+    border-color: #FC8234;
+}
+
+#result-access-form input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#result-access-form #submit-btn {
+    background-color: #FC8234;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 14px rgba(252, 130, 52, 0.4);
+}
+
+#result-access-form #submit-btn:hover {
+    background-color: #e26f24;
+}
+
+#patient-tips {
+    margin-left: 2vw;
+    flex-grow: 1;
+}
+
+#patient-tips p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #F8FAFC;
+}
+
+#patient-tips i {
+    color: #FC8234;
+    font-size: 1.25rem;
+}
+
+/* FOOTER ARCHITECTURE */
+footer {
+    background-color: #051626; /* Deep midnight baseline */
+    color: #9AA5B1;
+    padding: 60px 5% 30px 5%;
+}
+
 #footer-bx-i {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10vh;
     color: white;
 }
 
 #footer-top {
-    margin: 0px 5%;
+    margin: 0;
 }
 
 #footer-mid {
     display: flex;
     justify-content: space-between;
-    margin: 40px 5%;
+    margin: 40px 0;
 }
 
 .footer-col a {
     text-decoration: none;
-    color: #989D95;
-    margin-top: 5px;
+    color: #9AA5B1;
+    margin-top: 10px;
+    transition: color 0.2s;
+}
+
+.footer-col a:hover {
+    color: white;
 }
 
 .footer-col {
     display: flex;
     flex-direction: column;
-    color: white;
 }
 
 .footer-col p {
     font-weight: bold;
+    color: white;
+    margin: 0 0 10px 0;
 }
 
-#footer-bottom {
-    margin: 0px 5%;
+hr {
+    border: none;
+}
+
+/* ==========================================================================
+   NEW TEST CATALOGUE SECTION 
+   ========================================================================== */
+
+.catalog {
+    margin-top: 30px;
+    width: 100%;
+}
+
+/* 1. Filter Tabs Container */
+.filter-tabs {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+/* 2. Individual Tab Button Design */
+.tab {
+    padding: 12px 28px;
+    border-radius: 50px;
+    border: 2px solid #E2E8F0;
+    background-color: #FFFFFF;
+    color: #01264D;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+    transition: all 0.25s ease-in-out;
+}
+
+.tab:hover {
+    border-color: #469AB2;
+    color: #469AB2;
+    transform: translateY(-2px);
+}
+
+.tab.active {
+    background-color: #FC8234;
+    border-color: #FC8234;
+    color: #FFFFFF;
+    box-shadow: 0 6px 16px rgba(252, 130, 52, 0.3);
+}
+
+/* 3. Medical Disclaimer Notice Bar */
+.notice-bar {
+    background-color: #E0F2FE;
+    color: #0369A1;
+    border-left: 5px solid #0EA5E9;
+    padding: 15px 20px;
+    border-radius: 6px 15px 15px 6px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+/* 4. Dynamic Generated Testing Grid */
+.tests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* 5. Individual Test Card Blueprint */
+.test-card {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(1, 38, 77, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 220px; /* Increased to accommodate your new description field cleanly */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    text-align: left;
+    position: relative; 
+}
+
+/* Card Hover Animation */
+.test-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(1, 38, 77, 0.08);
+    border-color: #469AB2;
+}
+
+/* Upper Meta Block Layout */
+.test-card-top {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-footer {
-    background-color: #01264D;
-    color: #989D95;
-    padding-left: 10px;
-    padding-top: 20px;
-    margin-bottom: 0px;
-    padding-bottom: 20px;
+/* Department Badge Style */
+.card-category-badge {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    background-color: #F1F5F9;
+    color: #475569;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
 }
+
+/* FLOATING INDICATOR SYSTEM (Top Right Alignment) */
+.test-badge {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+}
+
+/* Priority Variation Classes Mapping */
+.test-badge.badge-routine {
+    background-color: #DCFCE7; 
+    color: #15803D;
+}
+
+.test-badge.badge-urgent {
+    background-color: #FEE2E2; 
+    color: #B91C1C;
+}
+
+.test-badge.badge-special {
+    background-color: #FEF3C7; /* Specialist Amber Gold highlight */
+    color: #D97706;
+}
+
+/* Main Text Testing Label Header */
+.test-name {
+    color: #01264D;
+    font-size: 1.25rem;
+    margin: 15px 0 8px 0;
+    font-weight: 800; 
+    line-height: 1.4;
+    letter-spacing: -0.3px;
+}
+
+/* Subtext Description Layer */
+.test-desc {
+    font-size: 0.88rem;
+    color: #4A5568;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Pushes the card footer to snap flat along the bottom boundary line */
+}
+
+/* Lower Turnaround Metadata Layout */
+.test-meta {
+    border-top: 1px solid #F1F5F9;
+    padding-top: 14px;
+    font-size: 0.85rem;
+    color: #64748B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Metadata Labels */
+.test-meta span:first-child::before {
+    content: "Turnaround: ";
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #94A3B8;
+    font-weight: 600;
+}
+
+.test-meta span:first-child {
+    color: #334155;
+    font-weight: 600;
+}
+
+.test-meta span:last-child {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #94A3B8;
+    font-weight: bold;
+}
+/* ==========================================================================
+   MEDICAL INSIGHTS BLOG CARDS 
+   ========================================================================== */
+
+#insights {
+    margin-top: 6%;
+    margin-bottom: 8%;
+    width: 90%;
+}
+
+/* 1. Two-Column Grid Setup */
+.insights-grid {
+    display: grid;
+    /* Arranges cards side-by-side on desktop, then wraps them to 1 column on tablets/mobile */
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2.5rem;
+}
+
+/* 2. Content Card Base Blueprint */
+.insight-card {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(1, 38, 77, 0.08);
+    border-radius: 20px;
+    padding: 40px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 280px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Card Hover Elevation Effects */
+.insight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(1, 38, 77, 0.07);
+    border-color: rgba(70, 154, 178, 0.25); /* Accents border subtly using your secondary color */
+}
+
+/* 3. Card Typography Structure */
+.insight-card h2 {
+    color: #01264D; /* Your dark blue signature header color */
+    font-size: 1.65rem;
+    font-weight: 800;
+    margin: 0 0 18px 0;
+    line-height: 1.3;
+    letter-spacing: -0.4px;
+}
+
+.insight-card p {
+    color: #4A5568; /* Balanced text contrast gray */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 30px 0;
+    flex-grow: 1; /* Automatically standardizes heights if text lengths differ slightly */
+}
+
+/* 4. Brand Link Action Elements (Bottom Right Call To Action) */
+.insight-link {
+    color: #FC8234; /* Your signature orange color */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+/* Arrow Slide Effect on Hover */
+.insight-card:hover .insight-link {
+    color: #e26f24; /* Darker orange interaction response */
+    transform: translateX(3px); /* Gently glides the text forward on card highlight */
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 550px) {
+    .insights-grid {
+        grid-template-columns: 1fr; /* Forces full width cards on mobile viewports */
+    }
+    .insight-card {
+        padding: 30px 20px;
+    }
+}
+/* ==========================================================================
+   SPLIT-FEATURE OVERVIEW BANNER 
+   ========================================================================== */
+
+#feature-banner {
+    margin-top: 8%;
+    margin-bottom: 8%;
+    width: 90%;
+}
+
+/* 1. Flexbox Two-Column Wrapper */
+.feature-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5rem;
+}
+
+/* 2. Left Column Circular Media Frame */
+.feature-media {
+    flex: 1;
+    max-width: 450px;
+    height: 450px;
+    border-radius: 50%; /* Magic property that turns any square picture into a perfect cutout circle */
+    overflow: hidden; /* Ensures the graphic scales cleanly within the frame boundaries */
+    box-shadow: 0 10px 30px rgba(1, 38, 77, 0.06);
+    background-color: #E2E8F0; /* Fallback frame tone while asset initializes loading */
+}
+
+.feature-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Stretches and crops the photo naturally to fill the circle framework */
+    display: block;
+}
+
+/* 3. Right Column Layout Metrics */
+.feature-content {
+    flex: 1.2;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Highlight Badge Tag */
+.feature-tag {
+    color: #469AB2; /* Your secondary corporate blue hue */
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+/* Big Focal Headline */
+.feature-content h2 {
+    color: #01264D; /* Signature deep navy color */
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0 0 20px 0;
+    letter-spacing: -0.5px;
+}
+
+/* Descriptive Paragraph Layer */
+.feature-content p {
+    color: #4A5568;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0 0 35px 0;
+}
+
+/* 4. Rounded Pill Button Action Styling */
+.feature-btn {
+    display: inline-block;
+    background-color: #469AB2; /* Soft corporate brand accent tint matching reference look */
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 14px 32px;
+    border-radius: 50px; /* Forces soft pill-rounded baseline boundaries */
+    font-size: 15px;
+    box-shadow: 0 4px 14px rgba(70, 154, 178, 0.3);
+    transition: all 0.2s ease-in-out;
+}
+
+.feature-btn:hover {
+    background-color: #01264D; /* Transitions to brand navy on mouse highlight interaction */
+    box-shadow: 0 6px 20px rgba(1, 38, 77, 0.25);
+    transform: translateY(-2px);
+}
+
+/* 5. Responsive Configuration Rules (Mobile Wrap Breakpoints) */
+@media (max-width: 900px) {
+    .feature-container {
+        flex-direction: column; /* Flips media graphic cleanly over copy columns on smaller monitors */
+        gap: 3rem;
+        text-align: center;
+    }
+    .feature-content {
+        align-items: center;
+        text-align: center;
+    }
+    .feature-content h2 {
+        font-size: 2rem;
+    }
+    .feature-media {
+        width: 320px;
+        height: 320px; /* Constrains boundaries evenly for balanced tablet tracking viewports */
+    }
+}
+
+/* ==========================================================================
+   UPDATED RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+
+/* --- 1. SMALL DESKTOPS & TABLETS LANDSCAPE (Max 1024px) --- */
+@media (max-width: 1024px) {
+    #block-1 {
+        width: 80%; /* Widens hero copy text container as viewport narrows */
+    }
+
+    #result-access-form {
+        width: 45vw; /* Expands patient report form box size proportion to retain grid sanity */
+    }
+}
+
+/* --- 2. TABLET PORTRAIT CONFIGURATIONS (Max 768px) --- */
+@media (max-width: 768px) {
+    /* Sticky Navigation Formatting Dropdown Adjustments */
+    nav {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0px;
+        gap: 12px;
+    }
+
+    #links ul a, #links select {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    /* Hero Layout Optimization Shifts */
+     #hero_section {
+        height: auto; /* Allows the background image container to grow naturally if needed */
+        min-height: 100vh; /* Soft fallback to keep it full screen if content is short */
+        padding: 80px 0px 0px 0px; /* Reset old bottom padding */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Dynamically pushes text up and the credentials down */
+    }
+
+    #block-1 {
+        width: 90%;
+        text-align: center;
+        margin: 0 auto;
+        /* ADDED: Pushes the text content up from the credentials card layout area */
+        margin-bottom: 240px; 
+    }
+
+    #block-1 h1 {
+        font-size: 2.5em;
+    }
+
+    /* Floating Credentials Frosty Bar Conversions */
+    #credentials {
+        /* FIXED: Keeps it locked at the very bottom line of the fluid section */
+        position: absolute;
+        bottom: 0px;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .creds {
+        width: 45%; /* Rearranges layout rows to match clean 2x2 grids */
+        flex: none;
+    }
+
+    .creds:nth-child(2) {
+        border-right: none; /* Safely removes vertical borders for the right-hand stack column */
+    }
+
+    .creds h1 {
+        font-size: 2.2rem;
+    }
+
+    /* Global Headings Spacing Balance */
+    #tc-sec-i h1, #how-it-works h1, #patient-portal h1 {
+        font-size: 2rem;
+    }
+
+    /* NEW FEATURE: Medical Insights Grid Conversion */
+    .insights-grid {
+        grid-template-columns: 1fr; /* Drops wide twin columns into a neat vertical reading queue */
+        gap: 1.5rem;
+    }
+
+    .insight-card {
+        padding: 30px 25px;
+        min-height: auto;
+    }
+
+    /* Secure Patient Portal Layout Stacking Updates */
+    #retrieve-results {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 30px;
+    }
+
+    #result-access-form {
+        width: 100%; /* Spreads access card across the tablet view width bounds safely */
+        padding: 30px 20px;
+    }
+
+    #patient-tips {
+        margin-left: 0;
+    }
+
+    /* Footer Navigation Map Organization */
+    #footer-bx-i {
+        flex-direction: column;
+        gap: 15px;
+        height: auto;
+        text-align: center;
+    }
+
+    #footer-mid {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* --- 3. MOBILE SMARTPHONE VIEWPORTS (Max 480px) --- */
+@media (max-width: 480px) {
+    /* Mobile Toolbar Wrapping Logic */
+    #links ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    #links ul a, #links select {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    /* Hero Layout Optimization Shifts */
+    #hero_section {
+        padding-bottom: 380px; /* Increases spacing because credentials stats will wrap vertically */
+    }
+
+    #block-1 h1 {
+        font-size: 2em;
+    }
+
+    /* Credentials Panels Single Column Fold */
+    .creds {
+        width: 100%;
+    }
+
+    .creds:not(#cred-iv) {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Replaces side line with horizontal separation row */
+        padding-bottom: 15px;
+    }
+
+    /* Procedure Module Metric Balance */
+    .upper-procedure span {
+        width: 8vh;
+        height: 8vh;
+        font-size: 2.5em;
+    }
+
+    /* Dynamic Test Catalog Button Scaling */
+    .tab {
+        padding: 10px 18px;
+        font-size: 13px;
+        width: 100%; /* Makes buttons full width stack blocks for easier thumb tapping */
+    }
+}
+
